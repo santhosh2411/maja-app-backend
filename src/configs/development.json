@@ -1,10 +1,10 @@
 {
     "env": "development",
     "dbConfig": {
-        "host": "localhost",
-        "user": "root",
-        "password": "password",
-        "database": "sequelize",
+        "host": "database-1.c1ariffmxilo.us-east-1.rds.amazonaws.com",
+        "user": "admin",
+        "password": "admin12345",
+        "database": "maja",
         "pool": {
             "min": 0,
             "max": 5

@@ -12,6 +12,7 @@ import swaggerUi from 'swagger-ui-express';
 import DB from '@databases';
 import Routes from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
+import authMiddleware from '@middlewares/auth.middleware';
 import { logger, stream } from '@utils/logger';
 
 class App {
@@ -45,7 +46,7 @@ class App {
   }
 
   private connectToDatabase() {
-    DB.sequelize.sync({ force: false });
+    // DB.sequelize.sync();
   }
 
   private initializeMiddlewares() {
@@ -63,6 +64,7 @@ class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
+    // this.app.use(authMiddleware);
   }
 
   private initializeRoutes(routes: Routes[]) {
@@ -89,6 +91,10 @@ class App {
 
   private initializeErrorHandling() {
     this.app.use(errorMiddleware);
+  }
+
+  private authMiddleware(){
+    this.app.use(authMiddleware);
   }
 }
 
