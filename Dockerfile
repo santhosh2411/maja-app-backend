@@ -10,15 +10,15 @@ RUN npm install
 EXPOSE 3000
 
 # Dvelopment build stage
-FROM common-build-stage as development-build-stage
+# FROM common-build-stage as development-build-stage
 
-RUN chmod +x /app/docker-entrypoint.sh
+# RUN chmod +x /app/docker-entrypoint.sh
 
-ENTRYPOINT [ "docker-entrypoint.sh" ]
+# ENTRYPOINT [ "docker-entrypoint.sh" ]
 
-ENV NODE_ENV development
+# ENV NODE_ENV development
 
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]
 
 # Production build stage
 FROM common-build-stage as production-build-stage
